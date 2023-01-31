@@ -21,7 +21,7 @@ include 'page_protection.php';
 
 <body>
     <header class="p-3 text-bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
@@ -30,15 +30,15 @@ include 'page_protection.php';
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/dashboard.php" class="nav-link px-2 text-secondary">Página Inicial</a></li>
+                    <li><a href="dashboard.php" class="nav-link px-2 text-secondary">Página Inicial</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Cadastros
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="abrirPage('users/create')">Empresas</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="abrirPage('users/delete')">Usuários</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="abrirPage('users/view')">Perfil</a></li>
+                            <li><a class="dropdown-item cursor-pointer" onclick="abrirPage('company/list')">Empresas</a></li>
+                            <li><a class="dropdown-item cursor-pointer" onclick="abrirPage('users/list')">Usuários</a></li>
+                            <li><a class="dropdown-item cursor-pointer" onclick="abrirPage('profile/list')">Perfil</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -46,24 +46,24 @@ include 'page_protection.php';
                             Lançamentos
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Receitas</a></li>
-                            <li><a class="dropdown-item" href="#">Despesas</a></li>
+                            <li><a class="dropdown-item cursor-pointer" onclick="abrirPage('recipe/list')">Receitas</a></li>
+                            <li><a class="dropdown-item cursor-pointer" onclick="abrirPage('expense/list')">Despesas</a></li>
                         </ul>
                     </li>
-                    <li><a href="relatorios.php" class="nav-link px-2 text-white">Relatórios</a></li>
-                    <li><a href="graficos.php" class="nav-link px-2 text-white">Gráficos</a></li>
+                    <li><a class="nav-link px-2 text-white cursor-pointer" onclick="abrirPage('reports/list')">Relatórios</a></li>
+                    <li><a class="nav-link px-2 text-white cursor-pointer" onclick="abrirPage('graphics/list')">Gráficos</a></li>
                 </ul>
                 <div class="flex-shrink-0 dropdown">
                     <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="assets/img/profile.png" alt="mdo" width="32" height="32" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu text-small shadow">
-                        <li><a class="dropdown-item" href="settings.php">Settings</a></li>
-                        <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                        <li><a class="dropdown-item cursor-pointer" href="settings.php">Settings</a></li>
+                        <li><a class="dropdown-item cursor-pointer" href="profile.php">Profile</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="logout.php">Sign out</a></li>
+                        <li><a class="dropdown-item cursor-pointer" href="logout.php">Sign out</a></li>
                     </ul>
                 </div>
             </div>
@@ -72,6 +72,12 @@ include 'page_protection.php';
     <div class="container paginas"></div>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            abrirPage('dashboard/index');
+        });
+    </script>
 </body>
 
 </html>
